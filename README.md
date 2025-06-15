@@ -1,4 +1,4 @@
-# split-the-bill
+# Split The Bill Web App
 A simple way to calculate how much each person in a party owes, including tip.
 
 ## License
