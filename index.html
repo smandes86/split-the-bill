@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split The Bill - Find out how much each person owes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<h1>Split The Bill</h1>
+<p>A simple way to calculate how much each person in a party owes, including tip!</p>
+
+
+<div class="container">
+    <label for="total">Bill Total</label>
+    <input id="Bill_Total" type="number" placeholder="Bill total (e.g. 14.55)" min="0" step="0.01">
+
+    <label for="tip">Tip Percentage</label>
+    <input id="Tip_Percentage" type="number" placeholder="Tip amount (e.g. 20)" min="0" step="1">
+
+    <label for="party">Total Number of People</label>
+    <input id="People" type="number" placeholder="Number of people" min="1" step="1">
+
+    <button aria-label="button" id="Calc_Btn">Calculate</button> <button id="Clear_Btn">Clear</button>
+    <p id="errorMsg" style="color: rgb(217, 255, 0); font-weight: bold;"></p>
+    <div class="results">
+        <p>Split Total (No Tip): <span id="noTip"></span></p>
+        <p>Each person tips: <span id="tipOnly"></span></p>
+        <p>Split Total (With Tip): <span id="withTip"></span></p>
+    </div>
+</div>
+
+<footer>
+    <p class="copyright">Created by Steven Mandes &copy; 2025.</p>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
