@@ -1,5 +1,5 @@
 # Split The Bill Web App
-A simple way to calculate how much each person in a party owes, including tip.
+A simple way to calculate how much each person in a party owes, including tip. <a href="https://smandes86.github.io/split-the-bill/">View demo</a>
 
 ## License
 
