@@ -62,8 +62,6 @@ clearBtn.addEventListener("click", function () {
   tipOnlyOutput.textContent = '';
   withTipOutput.textContent = '';
 
-  // Reset focus to the first field (Bill Total)
-  billInput.focus();
   // Clear input error
   errorMsg.textContent = "";
 });
