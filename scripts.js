@@ -5,7 +5,9 @@ const tipInput = document.getElementById("Tip_Percentage");
 // Grab total number of people inpu
 const peopleInput = document.getElementById("People");
 // Grab button
-const btn = document.getElementById("Calc_Btn");
+const btn = document.getElementById("calcBtn");
+// Grab Results Container
+const resultContainer = document.getElementById('resultsContainer');
 
 // Grab elements that displays the results
 const noTipOutput = document.getElementById("noTip");
@@ -14,42 +16,45 @@ const withTipOutput = document.getElementById("withTip");
 
 // Calculation function
 function splitCalc(){
-    const bill = parseFloat(billInput.value);
-    const tipPercent = parseFloat(tipInput.value) / 100;
-    const people = parseInt(peopleInput.value);
-    const errorMsg = document.getElementById("errorMsg");
+  const bill = parseFloat(billInput.value);
+  const tipPercent = parseFloat(tipInput.value) / 100;
+  const people = parseInt(peopleInput.value);
+  const errorMsg = document.getElementById("errorMsg");
 
-    // Input validation
-    if (isNaN(bill) || isNaN(tipPercent) || isNaN(people) || people <= 0) {
-        errorMsg.textContent = "Please enter valid numbers for all fields (and at least 1 person).";
-        return;
-    } else {
-        errorMsg.textContent = ""; // Clear error if valid
-    }
-
-    // Calculations
-    const tipAmount = bill * tipPercent;
-    const totalWithTip = bill + tipAmount;
-    const splitNoTip = bill / people;
-    const splitTip = tipAmount / people;
-    const splitWithTip = totalWithTip / people;
-
-    // Display results in USD format
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      });
-      
-      noTipOutput.textContent = formatter.format(splitNoTip);
-      tipOnlyOutput.textContent = formatter.format(splitTip);
-      withTipOutput.textContent = formatter.format(splitWithTip);
+  // Input validation
+  if (isNaN(bill) || isNaN(tipPercent) || isNaN(people) || people <= 0) {
+      errorMsg.textContent = "Please enter valid numbers for all fields (and at least 1 person).";
+      return;
+  } else {
+      errorMsg.textContent = ""; // Clear error if valid
   }
+
+  // Calculations
+  const tipAmount = bill * tipPercent;
+  const totalWithTip = bill + tipAmount;
+  const splitNoTip = bill / people;
+  const splitTip = tipAmount / people;
+  const splitWithTip = totalWithTip / people;
+
+  // Set background color to white when the calculations are displayed
+  resultContainer.style.backgroundColor = '#FFFFFF';
+
+  // Display results in USD format
+  const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    
+    noTipOutput.textContent = formatter.format(splitNoTip);
+    tipOnlyOutput.textContent = formatter.format(splitTip);
+    withTipOutput.textContent = formatter.format(splitWithTip);
+}
 
 // Bind button click
 btn.addEventListener("click", splitCalc);
 
 // Clear fields and results
-const clearBtn = document.getElementById("Clear_Btn");
+const clearBtn = document.getElementById("clearBtn");
 
 clearBtn.addEventListener("click", function () {
   // Clear input values
@@ -64,6 +69,9 @@ clearBtn.addEventListener("click", function () {
 
   // Clear input error
   errorMsg.textContent = "";
+
+  // Result container goes back to default color
+  resultContainer.style.backgroundColor = '#CCCCCC';
 });
 
   

@@ -21,10 +21,13 @@
 
     <label for="party">Total Number of People</label>
     <input id="People" type="number" placeholder="Number of people" min="1" step="1">
+    <div class="button-container">
+        <button aria-label="button" id="calcBtn">Calculate</button> 
+        <button id="clearBtn">Clear</button>
+    </div>
 
-    <button aria-label="button" id="Calc_Btn">Calculate</button> <button id="Clear_Btn">Clear</button>
-    <p id="errorMsg" style="color: rgb(217, 255, 0); font-weight: bold;"></p>
-    <div class="results">
+    <p id="errorMsg"></p>
+    <div class="results" id="resultsContainer">
         <p>Split Total (No Tip): <span id="noTip"></span></p>
         <p>Each person tips: <span id="tipOnly"></span></p>
         <p>Split Total (With Tip): <span id="withTip"></span></p>
